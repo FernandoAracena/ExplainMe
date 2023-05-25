@@ -17,9 +17,12 @@ def index():
         # Process the content into chunks and summaries
         summaries = process_chunks(content)
 
-        translated_summaries = translate_summaries(summaries)
+        # Translate the summaries based on the selected language
+        selected_language = request.form['language']
+        translated_summaries = translate_summaries(
+            summaries, selected_language)
 
-        return render_template('upload.html', summary=translated_summaries)
+        return render_template('upload.html', summary=translated_summaries, url=url)
 
     return render_template('index.html')
 

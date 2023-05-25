@@ -12,9 +12,21 @@
     <div class="grid-container">
         <div class="grid-item">{{ summary }}</div>
         <div class="grid-item">
-            <a href="/"><button class="submit-button">Upload another Url</button></a>
+            <a href="/"><button class="submit-button">Upload another URL</button></a>
         </div>
     </div>
+
+    <h2>Select Translation Language:</h2>
+    <form method="post" action="/">
+        <select name="language">
+            <option value="no">Norwegian</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <!-- Add more options for different languages as needed -->
+        </select>
+        <input type="hidden" name="url" value="{{ url }}">
+        <input type="submit" value="Translate">
+    </form>
 </body>
 
 </html>
