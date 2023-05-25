@@ -2,7 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import newspaper
 import openai
+import os
 from secret.keys import API_KEY
+
+
+API_KEY = os.getenv('API_KEY')
 
 
 def download_and_parse(url):
