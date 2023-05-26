@@ -9,25 +9,18 @@
 
 <body>
     <div class="container">
+        {% if explainme_error %}
+        <p class="error-message">{{ explainme_error }}</p>
+        {% else %}
         <h1 class="title">Enter the URL of the article you want to read:</h1>
-        <form class="form" method="post" enctype="multipart/form-data">
+        <form class="form" method="post" action="/upload" enctype="multipart/form-data">
             <div>
                 <input class="url-input" type="url" name="url" placeholder="Enter URL" required>
                 <input class="submit-button" type="submit" value="ExplainMe">
             </div>
         </form>
+        {% endif %}
     </div>
-    <h2>Select Translation Language:</h2>
-    <form method="post" action="/">
-        <select name="language">
-            <option value="no">Norwegian</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <!-- Add more options for different languages as needed -->
-        </select>
-        <input type="hidden" name="url" value="{{ url }}">
-        <input type="submit" value="Translate">
-    </form>
 </body>
 
 </html>

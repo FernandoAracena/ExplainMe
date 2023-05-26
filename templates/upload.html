@@ -3,17 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <title>ExplainMe</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 
 <body>
-    <h1>Article Summary</h1>
-    <div class="grid-container">
-        <div class="grid-item">{{ summary }}</div>
-        <div class="grid-item">
-            <a href="/"><button class="submit-button">Upload another URL</button></a>
+    <div class="container">
+        {% if translate_error %}
+        <p class="error-message">{{ translate_error }}</p>
+        {% endif %}
+        {% if summary %}
+        <div>
+            <div class="grid-container">
+                <h1>Article Summary</h1>
+                {% for item in summary %}
+                <div class="grid-item">{{ item }}</div>
+                {% endfor %}
+                <div class="grid-item">
+                    <a href="/"><button class="submit-button">Upload another URL</button></a>
+                </div>
+            </div>
         </div>
+        {% endif %}
     </div>
 </body>
 
